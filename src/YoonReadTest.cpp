@@ -3,7 +3,7 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
-#include "Syllable.h"
+#include "Gojuon.h"
 
 using std::cin; using std::cout; using std::endl;
 using std::string; using std::vector; using std::begin; using std::end;
@@ -11,25 +11,25 @@ using std::string; using std::vector; using std::begin; using std::end;
 int main()
 {
 	srand((unsigned)time(0));
-	auto yoon_size = yoon_syllables.size();
+	auto yoon_size = yoon.size();
 
 	bool isHiragana;
-	SyllableIndex index;
+	GojuonIndex index;
 
 	isHiragana = rand() % 2;
 	index = rand() % yoon_size;
-	const Syllable* temp_syllable = &yoon_syllables[index];
-	cout << "Please read \"" << getRandomKana(temp_syllable, isHiragana) << "\":";
+	const Gojuon* temp_Gojuon = &yoon[index];
+	cout << "Please read \"" << getRandomKana(temp_Gojuon, isHiragana) << "\":";
 	while (cin.ignore()) {
-		cout << "The romaji is \"" << yoon_syllables[index].getRomaji()
-			<< "\", the hiragana is \"" << yoon_syllables[index].getHiragana()
-			<< "\", the katakana is \"" << yoon_syllables[index].getKatakana()
+		cout << "The romaji is \"" << yoon[index].getRomaji()
+			<< "\", the hiragana is \"" << yoon[index].getHiragana()
+			<< "\", the katakana is \"" << yoon[index].getKatakana()
 			<< "\"." << endl << endl;
 
 		isHiragana = rand() % 2;
 		index = rand() % yoon_size;
-		temp_syllable = &yoon_syllables[index];
-		cout << "Please read \"" << getRandomKana(temp_syllable, isHiragana) << "\":";
+		temp_Gojuon = &yoon[index];
+		cout << "Please read \"" << getRandomKana(temp_Gojuon, isHiragana) << "\":";
 	}
 	return 0;
 }

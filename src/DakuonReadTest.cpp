@@ -3,7 +3,7 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
-#include "Syllable.h"
+#include "Gojuon.h"
 
 using std::cin; using std::cout; using std::endl;
 using std::string; using std::vector; using std::begin; using std::end;
@@ -11,24 +11,24 @@ using std::string; using std::vector; using std::begin; using std::end;
 int main()
 {
 	srand((unsigned)time(0));
-	auto dakuon_size = dakuon_syllables.size();
+	auto dakuon_size = dakuon.size();
 
 	bool isHiragana;
-	SyllableIndex index;
+	GojuonIndex index;
 
 	isHiragana = rand() % 2;	
 	index = rand() % dakuon_size;
-	const Syllable* temp_syllable = &dakuon_syllables[index];
+	const Gojuon* temp_syllable = &dakuon[index];
 	cout << "Please read \"" << getRandomKana(temp_syllable, isHiragana) << "\":";
 	while (cin.ignore()) {
-		cout << "The romaji is \"" << dakuon_syllables[index].getRomaji()
-			<< "\", the hiragana is \"" << dakuon_syllables[index].getHiragana()
-			<< "\", the katakana is \"" << dakuon_syllables[index].getKatakana()
+		cout << "The romaji is \"" << dakuon[index].getRomaji()
+			<< "\", the hiragana is \"" << dakuon[index].getHiragana()
+			<< "\", the katakana is \"" << dakuon[index].getKatakana()
 			<< "\"." << endl << endl;
 
 		isHiragana = rand() % 2;
 		index = rand() % dakuon_size;
-		temp_syllable = &dakuon_syllables[index];
+		temp_syllable = &dakuon[index];
 		cout << "Please read \"" << getRandomKana(temp_syllable, isHiragana) << "\":";
 	}
 	return 0;

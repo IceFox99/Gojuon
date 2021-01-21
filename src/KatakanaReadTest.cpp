@@ -3,27 +3,27 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
-#include "Syllable.h"
+#include "Gojuon.h"
 
 using std::cin; using std::cout; using std::endl;
 using std::string; using std::vector; using std::begin; using std::end;
 
 int main()
 {
-	auto size = syllables.size();
-	SyllableIndex index;
+	auto size = gojuon.size();
+	GojuonIndex index;
 	srand((unsigned)time(0));
 
 	index = rand() % size;
-	cout << "Please read \"" << syllables[index].getKatakana() << "\":";
+	cout << "Please read \"" << gojuon[index].getKatakana() << "\":";
 	while (cin.ignore()) {
-		cout << "The romaji is \"" << syllables[index].getRomaji()
-			<< "\", the hiragana is \"" << syllables[index].getHiragana()
-			<< "\", the katakana is \"" << syllables[index].getKatakana()
+		cout << "The romaji is \"" << gojuon[index].getRomaji()
+			<< "\", the hiragana is \"" << gojuon[index].getHiragana()
+			<< "\", the katakana is \"" << gojuon[index].getKatakana()
 			<< "\"." << endl << endl;
 
 		index = rand() % size;
-		cout << "Please read \"" << syllables[index].getKatakana() << "\":";
+		cout << "Please read \"" << gojuon[index].getKatakana() << "\":";
 	}
 	return 0;
 }
